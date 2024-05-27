@@ -9,6 +9,7 @@ const cartCounter = document.getElementById('cart-count');
 const addressInput = document.getElementById('address');
 const addressWarn = document.getElementById('address-warn');
 
+
 let cart = [];
 
 cartBtn.addEventListener('click', function() {
@@ -49,7 +50,7 @@ function addToCart(name, price) {
             quantity: 1
         })
         Toastify({
-            text: "ÍTEM ADICIONADO AO CARRINHO!",
+            text: "ITEM ADICIONADO AO CARRINHO!",
             duration: 3000,
             close: true,
             gravity: "top",
@@ -159,14 +160,15 @@ checkoutBtn.addEventListener('click', function() {
 
     const cartItems = cart.map((item) => {
         return (
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price.toFixed(2)} |`
+            ` ${item.name} - Quantidade: (${item.quantity}) - Preço: R$ ${item.price.toFixed(2)} |`
         )
     }).join("")
 
     const message = encodeURIComponent(cartItems)
-    const phone = "5511984364352"
+    const phone = "5584998919920"
+    const name = document.getElementById("name").value;
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=Olá, meu nome é ${name} e esse é o meu pedido: ${message} Endereço: ${addressInput.value}`, "_blank")
 
     cart = []
     addressInput.value = ''
@@ -176,7 +178,7 @@ checkoutBtn.addEventListener('click', function() {
 function checkRestaurantOpen() {
     const data = new Date()
     const hora = data.getHours()
-    return hora >= 18 && hora < 22
+    return hora >= 1 && hora < 14
 }
 
 const spanItem = document.getElementById('date-span')
