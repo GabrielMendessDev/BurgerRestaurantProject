@@ -65,6 +65,7 @@ function addToCart(name, price) {
     updateCartModal()
 };
 
+
 function updateCartModal() {
     cartItemsContainer.innerHTML = ''
     let total = 0
@@ -168,7 +169,7 @@ checkoutBtn.addEventListener('click', function() {
     const phone = "5584998919920"
     const name = document.getElementById("name").value;
 
-    window.open(`https://wa.me/${phone}?text=Olá, meu nome é ${name} e esse é o meu pedido: ${message} Endereço: ${addressInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=Olá, meu nome é ${name} e esse é o meu pedido: ${message} Endereço: ${addressInput.value} | Valor total: R$ ${cartTotal.textContent}`, "_blank")
 
     cart = []
     addressInput.value = ''
@@ -178,7 +179,7 @@ checkoutBtn.addEventListener('click', function() {
 function checkRestaurantOpen() {
     const data = new Date()
     const hora = data.getHours()
-    return hora >= 18 && hora < 22
+    return hora >= 1 && hora < 24
 }
 
 const spanItem = document.getElementById('date-span')
